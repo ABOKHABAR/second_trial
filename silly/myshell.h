@@ -32,6 +32,14 @@
 
 extern char **h7k2l_environ;
 
+
+/**
+ * struct h7k2l_liststr - A structure to represent a list of strings.
+ *
+ * @num: An integer associated with the string.
+ * @str: The string.
+ * @next: Pointer to the next node in the list.
+ */
 typedef struct h7k2l_liststr
 {
 	int num;
@@ -39,6 +47,28 @@ typedef struct h7k2l_liststr
 	struct h7k2l_liststr *next;
 } h7k2l_list_t;
 
+/**
+*struct h7k2l_passinfo- Structure to hold information related to shell commands
+*
+* @h7k2l_arg: The first argument or command.
+* @h7k2l_argv: An array of command arguments.
+* @h7k2l_path: The path to the command.
+* @h7k2l_argc: The number of arguments.
+* @h7k2l_line_count: The current line count in the shell.
+* @h7k2l_err_num: Error number.
+* @h7k2l_linecount_flag: Line count flag.
+* @h7k2l_fname: File name.
+* @h7k2l_env: Pointer to the environment list.
+* @h7k2l_history: Pointer to the history list.
+* @h7k2l_alias: Pointer to the alias list.
+* @h7k2l_environ: Pointer to the shell environment.
+* @h7k2l_env_changed: Flag to indicate environment changes.
+* @h7k2l_status: Command execution status.
+* @h7k2l_cmd_buf: Command buffer.
+* @h7k2l_cmd_buf_type: Type of command buffer.
+* @h7k2l_readfd: File descriptor for reading.
+* @h7k2l_histcount: History count.
+*/
 typedef struct h7k2l_passinfo
 {
 	char *h7k2l_arg;
@@ -65,6 +95,12 @@ typedef struct h7k2l_passinfo
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
 0, 0, 0}
 
+/**
+ * struct h7k2l_builtin - Structure to represent a built-in shell command.
+ *
+ * @h7k2l_type: The type or name of the built-in command.
+ * @h7k2l_func: A function pointer to the implementation of the command.
+ */
 typedef struct h7k2l_builtin
 {
 	char *h7k2l_type;
